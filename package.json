@@ -4,7 +4,10 @@
     "description": "",
     "main": "app.js",
     "scripts": {
+        "build": "webpack --mode production",
+        "dev": "concurrently \"npm:dev:*\" --kill-others",
         "start": "node app.js",
+        "test": "jest"
     },
     "engines": {
         "node": "14"
