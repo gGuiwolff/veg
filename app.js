@@ -66,7 +66,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(express.static(path.join(__dirname, "..", "client", "public")));
 
 //Mount routers
 app.use("/register", register);
@@ -94,7 +93,7 @@ app.use("/teste", () => console.log('[EXPO AQUI]'))
 
 
 app.get("*", requireLoggedInUser, (req, res) =>
-    res.sendFile(path.join(__dirname, "..", "client", "index.html"))
+    res.send('ok')
 );
 
 var port = process.env.PORT || 3000;
@@ -172,3 +171,4 @@ io.on("connection", async (socket) => {
         }
     });
 });
+
