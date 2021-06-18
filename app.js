@@ -91,6 +91,10 @@ app.use("/teste", () => console.log('[EXPO AQUI]'))
 //app.use("/cloudimages")
 // FECHA TESTE====
 
+app.get("*", requireLoggedInUser, (req, res) =>
+    res.sendFile(path.join(__dirname, "..", "client", "index.html"))
+);
+
 
 app.get("*", requireLoggedInUser, (req, res) =>
     res.send('ok')
