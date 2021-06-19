@@ -92,7 +92,7 @@ app.use("/teste", () => console.log('[EXPO AQUI]'))
 // FECHA TESTE====
 
 app.get("*", requireLoggedInUser, (req, res) =>
-    res.sendFile(path.join(__dirname, "/client/index.html"))
+    res.sendFile(path.join(__dirname,"/client/index.html"))
 );
 
 
