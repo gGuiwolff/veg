@@ -4,7 +4,7 @@ const cors = require("cors");
 const server = require("http").Server(app);
 const io = require("socket.io")(server, {
     allowRequest: (req, callback) =>
-        callback(null, req.headers.referer.startsWith("https://nwefront-ql8vuu64g-gguiwolff.vercel.app")),
+        callback(null, req.headers.referer.startsWith("https://nwefront-gguiwolff.vercel.app/")),
 });
 const compression = require("compression");
 const path = require("path");
@@ -90,6 +90,11 @@ app.use("/teste", () => console.log('[EXPO AQUI]'))
 //app.use('/post',post)
 //app.use("/cloudimages")
 // FECHA TESTE====
+
+
+app.get("*", requireLoggedInUser, (req, res) =>
+    res.sendFile(path.join(__dirname,"/client/index.html"))
+);
 
 var port = process.env.PORT || 3000;
 server.listen(port, () => console.log("http://apivegiwe-com.umbler.net"));
