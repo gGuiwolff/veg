@@ -4,7 +4,7 @@ const cors = require("cors");
 const server = require("http").Server(app);
 const io = require("socket.io")(server, {
     allowRequest: (req, callback) =>
-        callback(null, req.headers.referer.startsWith("http://localhost:3000")),
+        callback(null, req.headers.referer.startsWith("https://nwefront-ql8vuu64g-gguiwolff.vercel.app")),
 });
 const compression = require("compression");
 const path = require("path");
