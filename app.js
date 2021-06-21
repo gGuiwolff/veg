@@ -12,7 +12,6 @@ const dotenv = require("dotenv");
 dotenv.config({ path: __dirname + "/./config/config.env" });
 const csurf = require("csurf");
 const { requireLoggedInUser } = require("./middleware/auth");
-const { requireLoggedOutUser } = require("./middleware/auth");
 const cookieSession = require("cookie-session");
 const {
     getChatMessages,
@@ -93,10 +92,6 @@ app.use("/teste", () => console.log('[EXPO AQUI]'))
 //app.use('/post',post)
 //app.use("/cloudimages")
 // FECHA TESTE====
-
-app.get("/", requireLoggedOutUser, (req, res) =>
-    res.redirect("/welcome")
-);
 
 app.get("*", requireLoggedInUser, (req, res) =>
     res.sendFile(path.join(__dirname, "client", "index.html"))
