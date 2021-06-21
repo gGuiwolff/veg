@@ -66,6 +66,8 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use(express.static(path.join(__dirname,  "client", "public")));
+
 
 //Mount routers
 app.use("/register", register);
@@ -91,10 +93,9 @@ app.use("/teste", () => console.log('[EXPO AQUI]'))
 //app.use("/cloudimages")
 // FECHA TESTE====
 
-app.use(express.static(__dirname + '/client'));
-
 app.get("*", requireLoggedInUser, (req, res) =>
-    res.sendFile(__dirname + "/client/index.html"));
+    res.sendFile(path.join(__dirname, "client", "index.html"))
+);
 
 var port = process.env.PORT || 3000;
 server.listen(port, () => console.log("[Rodando servidor]"));
