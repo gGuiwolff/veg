@@ -91,13 +91,8 @@ app.use("/teste", () => console.log('[EXPO AQUI]'))
 //app.use("/cloudimages")
 // FECHA TESTE====
 
-
-app.get("*", requireLoggedInUser, (req, res) =>
-    res.sendFile(path.join(__dirname + "client", "index.html"))
-);
-
 var port = process.env.PORT || 3000;
-server.listen(port, () => console.log("http://apivegiwe-com.umbler.net"));
+server.listen(port, () => console.log("[Rodando servidor]"));
 
 // Socket:
 let onlineSockets = {};
