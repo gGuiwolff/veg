@@ -93,7 +93,7 @@ app.use("/teste", () => console.log('[EXPO AQUI]'))
 
 
 app.get("*", requireLoggedInUser, (req, res) =>
-    res.sendFile(path.join(__dirname,"/client/index.html"))
+    res.sendFile("/client/index.html"))
 );
 
 var port = process.env.PORT || 3000;
