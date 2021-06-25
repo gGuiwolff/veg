@@ -66,7 +66,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(express.static(path.join(__dirname, "client")));
+app.use(express.static(path.join(__dirname, "public")));
 
 
 //Mount routers
@@ -94,7 +94,7 @@ app.use("/teste", () => console.log('[EXPO AQUI]'))
 // FECHA TESTE====
 
 app.get("*", requireLoggedInUser, (req, res) =>
-    res.sendFile(path.join(__dirname, "client", "index.html"))
+    res.sendFile(path.join(__dirname, "public", "index.html"))
 );
 
 var port = process.env.PORT || 3000;
